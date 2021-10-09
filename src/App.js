@@ -16,7 +16,7 @@ const btnValues = [
 const toLocaleString = (num) =>
     String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
 
-// Remove spaces so number can be converted from st to int 
+// Remove spaces so number can be converted from str to int 
 const removeSpaces = (num) => num.toString().replace(/\s/g, "");
 
 export default function App(){
@@ -45,7 +45,7 @@ export default function App(){
         setCalc({
             ...calc,
             // if there is a . ignore the press, if there is not add the . to the number
-            num: calc.num.toString.includes(".") ? calc.num : calc.num + value
+            num: calc.num.toString().includes(".") ? calc.num : calc.num + value
         })
     }
 
@@ -131,7 +131,7 @@ export default function App(){
                                 : btn === "%"  ? percentClickHandler
                                 : btn === "=" ? equalsClickHandler
                                 : btn === "/" || btn === "X" || btn === "-" || btn === "+" ? signClickHandler
-                                : btn === "," ? commaClickHandler
+                                : btn === "." ? commaClickHandler
                                 : numClickHandler
                             }
                         />    
